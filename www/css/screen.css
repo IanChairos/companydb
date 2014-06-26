@@ -1,0 +1,124 @@
+body {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #333;
+	background: white;
+}
+
+h1 {
+	color: #3484D2;
+}
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+div.flash {
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+
+form tr, form td {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+form .required label {
+	font-weight: bold;
+}
+
+form .error {
+	color: #D00;
+	font-weight: bold;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.clear {
+	clear: both;
+}
+
+td.padded {
+	padding-left: 15px;
+}
+
+div.padded {
+	padding: 10px 20px;
+}
+
+label {
+	line-height: 30px !important;
+}
+
+.alert close {
+	margin-top: 5px;
+}
+
+.alternative-background th {
+	background: #605f5f;
+	color: white;
+	text-shadow: 1px 1px #605f5f;
+	text-align: center;
+}
+
+table.white-background {
+	background: white;
+}
+
+.dg-found-label {
+	float: right; text-align: right; padding: 5px 10px; font-size: 15px; font-weight: bold; height: 15px;
+}
+
+.datagrid tr:hover {
+	background: #fcf9e6;
+}
+
+
+/** live validation */
+span.form-error-message {
+	font-weight: bold;
+	  position: absolute;
+	  height: 20px;
+	  line-height: 20px;
+	  padding: 5px 10px;
+	  font-size: 12px;
+	  text-align: center;
+	  color: rgb(255, 255, 255);
+	  background: rgb(255, 0, 0);
+	  border: 0px solid rgb(255, 255, 255);
+	  border-radius: 5px;
+	  text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+	  box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+}
+
+span.form-error-message:after {
+	  content: "";
+	  position: absolute;
+	  width: 0;
+	  height: 0;
+	  border-width: 15px;
+	  border-style: solid;
+	  border-color: transparent #FF0000 transparent transparent;
+	  top: 0px;
+	  left: -27px;
+}
+
+.navbar span.form-error-message {
+	left: 250px;
+	top: 16px;
+}

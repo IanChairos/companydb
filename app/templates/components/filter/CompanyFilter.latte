@@ -1,0 +1,23 @@
+<div class="pull-left" style="margin-left: 5px;">
+	<span class="pull-left muted" style="line-height: 40px; font-size: 20px; margin-right: 10px;">Filter</span>
+	{form form, class=>"navbar-form pull-left"}
+		{if $conditions && $conditions['ic']}
+			{input ic, class=>'pull-left search-column', placeholder=>'IČ'}
+		{else}
+			{input ic, class=>'pull-left', placeholder=>'IČ'}
+		{/if}
+		<div class="pull-left">
+			<a class="btn btn-success button-faker" data-target="#frmform-submit" style="margin-left: 5px;"><i class="icon-white icon-filter"></i> Apply</a>
+			<a class="btn btn-danger button-faker" data-target="#frmform-reset"><i class="icon-white icon-trash"></i> Reset</a>
+			{input submit, class=>'hidden'}
+			{input reset, class=>'hidden'}
+		</div>
+	
+		{if $conditions && $conditions['ic']}
+			<style type="text/css">
+				input.search-column,.search-column { border: #fee57c; background: #fee990; } 
+				th.search-column { background: #a48501; color: #fff; } 
+			</style>
+		{/if}
+	{/form}
+</div>

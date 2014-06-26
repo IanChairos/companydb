@@ -1,0 +1,61 @@
+{if $contact}
+	<h1>{$contact->getLastname().', '.$contact->getFirstname()}</h1>
+	<div style="margin-bottom: 15px;" class="">
+		<span class="label label-info">Created :</span>
+		<code>{$contact->getCreated()->format('l jS F')}</code> ,
+		<code>{$contact->getCreated()->format('Y-m-d \a\t H:i:s')}</code>
+		<br/>
+		<span class="label label-info">Last update :</span>
+		<code>{$contact->getUpdated()->format('l jS F')}</code> ,
+		<code>{$contact->getUpdated()->format('Y-m-d \a\t H:i:s')}</code>
+	</div>
+{else}
+	<h1>New Contact person</h1>
+{/if}
+	
+<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+	{$flash->message}
+	<button class="close pull-right">&times;</button>
+</div>
+
+{form $control::FORM_NAME}
+<div class="well">
+	<table>
+		<tr>
+			<td>{label firstname /}</td><td class="padded">{input firstname}</td>
+		</tr>
+		<tr>
+			<td>{label lastname /}</td><td class="padded">{input lastname}</td>
+		</tr>
+		<tr>
+			{if $form->getComponent('company_select',FALSE)}
+				<td>{label company_select /}</td><td class="padded">{input company_select} {input company}</td>
+			{else}
+				<td>{label company /}</td><td class="padded">{input company}</td>
+			{/if}
+		</tr>
+		<tr>
+			<td>{label phone /}</td><td class="padded">{input phone}</td>
+		</tr>
+		<tr>
+			<td>{label email /}</td><td class="padded">{input email}</td>
+		</tr>
+		<tr>
+			<td>{label job_name /}</td><td class="padded">{input job_name}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<span class="pull-right">
+					{if $contact}
+						<a class="btn btn-danger button-faker modal-confirm" data-target="#frmform-delete" data-modal-message="Do you really want to delete this contact?"><i class="icon-white icon-remove"></i> Delete</a>
+						{input delete, class => 'hidden'}
+					{/if}
+					<a class="btn btn-success button-faker" data-target="#frmform-save"><i class="icon-white icon-ok"></i> Save</a>
+					{input save, class => 'hidden'}
+				</span>
+			</td>
+		</tr>
+	</table>
+</div>
+{/form}
+	

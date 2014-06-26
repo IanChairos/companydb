@@ -1,0 +1,57 @@
+{**
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title}{/block} CompanyDB</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	{var $favicon = 'AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAADw9P8AsLCwAKGhoQD5+fkAkpKSAKuopgC9vb0An5+fAPf39wDo6OgA2dnZAMrKygC7u7sA/v70AMrH9ADX19cAm5ubAPPz8wCMjIwA/v79AOTk5AAEBdQA1dXVAMbGxgCoqKgAmZmZAOLi4gDT09MAxMTEAP7+/gCxsLMAT1XQANHR0QDCwsIA+/35APz8/ADe3t4AycX0AP/+/wCioqIAk5OTAOvr6wC+vr4Ar6+vAKCgoADp6ekAy8vLAAcB4gC8vLwA+vb+AKilqwD6/fsA5+fnANjY2ADe2PkAycnJAPv8/gC6uroAjY2NAP///gDW1tYA2tbWAKmpqQCampoA+/38AAED3gDy8vIA/Pz/ALa2tgCnp6cAycb0AP///wCYmJgA8PDwAOHh4QDS0tIAp6WtAMPDwwDVztUA/f39AMO/vgDf398AqqilAPv7+wCUlJQA3d3dAM7OzgDHyskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR0dHHQk0CR00CQktA0dHR0dHR0dHER0GKgwMOUdHR0dHR0dHTzo6UxISEjpPR0dHR0dHKFQoBB0oKAQEVkdHR0cjED9IGRkdPxA/PyBHR0dHBwcCBywsHQICJwIbR0dHRz4YRUVFI0BMBQVSMhNHR0crKwEXHRYxNkYlDgAeR0dHREQdHUdHVzgvQRVOIkdHR1MuDDBJTyYIMx9QJjtHR0dNHE0hHC5HRw09Q0dHR0dHCwsLLjc3C0dHR0dHR0dHRzxLIEtLS0sgGk9HR0dHR0cdKQo1DzUPNQ8dR0dHR0dHR0cjVSRRSlFHR0dHR0dHR0dHRx0UNEJHR0dHR0dHRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='}
+	<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,{$favicon}" />
+	{block head}{/block}
+	
+	{block scripts}
+	<script src="{$basePath}/js/jquery-1.9.1.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/bootstrap.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	<script src="{$basePath}/js/live-form-validation.js"></script>
+	{/block}
+</head>
+
+<body>
+	<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}" style="text-align: center;">
+		{$flash->message}
+		<button class="close pull-right" style="margin-top: 5px;">&times;</button>
+	</div>
+	
+	{include #content}
+	
+	<div id="modal-window" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header" style="background: #da2020; color: white; text-shadow: 0.1em 0.1em 0.5em black;">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="modal-label"></h3>
+		</div>
+		<div class="modal-body">
+			<p>
+				<div id="modal-message"></div>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true"><i class="icon-white icon-remove"></i> Cancel</button>
+			<a id="modal-confirm-button" class="btn btn-success"><i class="icon-white icon-ok"></i> Ok</a>
+		</div>
+	</div>
+
+</body>
+</html>

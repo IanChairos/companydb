@@ -1,0 +1,23 @@
+<div class="pagination">
+	<div n:if="$pages" class="pull-left">
+		<ul>
+		<li><a n:href="paginate! 1"><i class="icon icon-fast-backward"></i></a></li>
+		{foreach $pages as $page}
+			{if ($control->getPage() == $page)}
+				<li><span class="btn-inverse">{$page}</span></li>
+			{else}
+				<li><a n:href="paginate! $page">{$page}</a></li>
+			{/if}
+		{/foreach}
+		<li><a n:href="paginate! $control->getLastPage()"><i class="icon icon-fast-forward"></i></a></li>
+		</ul>
+	</div>
+
+	<div class="pull-right" style="margin-left: 25px;">
+		{form form}
+			{label pageSize, class => "pull-left", style=>"line-height:30px; margin-right:5px;"/}{input pageSize, style=>"width: auto;", class=>"submit-form-onchange"}
+			{input submit, class => "hidden"}
+		{/form}
+	</div>
+
+</div>

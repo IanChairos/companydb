@@ -1,0 +1,32 @@
+{block title}Homepage | {/block}
+
+{block content}
+<div style="text-align: center; height: 500px; position: absolute; top: 40%; margin: -250px 0 0 -150px; left: 50%;">
+	{var $icon = 'AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAADw9P8AsLCwAKGhoQD5+fkAkpKSAKuopgC9vb0An5+fAPf39wDo6OgA2dnZAMrKygC7u7sA/v70AMrH9ADX19cAm5ubAPPz8wCMjIwA/v79AOTk5AAEBdQA1dXVAMbGxgCoqKgAmZmZAOLi4gDT09MAxMTEAP7+/gCxsLMAT1XQANHR0QDCwsIA+/35APz8/ADe3t4AycX0AP/+/wCioqIAk5OTAOvr6wC+vr4Ar6+vAKCgoADp6ekAy8vLAAcB4gC8vLwA+vb+AKilqwD6/fsA5+fnANjY2ADe2PkAycnJAPv8/gC6uroAjY2NAP///gDW1tYA2tbWAKmpqQCampoA+/38AAED3gDy8vIA/Pz/ALa2tgCnp6cAycb0AP///wCYmJgA8PDwAOHh4QDS0tIAp6WtAMPDwwDVztUA/f39AMO/vgDf398AqqilAPv7+wCUlJQA3d3dAM7OzgDHyskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR0dHHQk0CR00CQktA0dHR0dHR0dHER0GKgwMOUdHR0dHR0dHTzo6UxISEjpPR0dHR0dHKFQoBB0oKAQEVkdHR0cjED9IGRkdPxA/PyBHR0dHBwcCBywsHQICJwIbR0dHRz4YRUVFI0BMBQVSMhNHR0crKwEXHRYxNkYlDgAeR0dHREQdHUdHVzgvQRVOIkdHR1MuDDBJTyYIMx9QJjtHR0dNHE0hHC5HRw09Q0dHR0dHCwsLLjc3C0dHR0dHR0dHRzxLIEtLS0sgGk9HR0dHR0cdKQo1DzUPNQ8dR0dHR0dHR0cjVSRRSlFHR0dHR0dHR0dHRx0UNEJHR0dHR0dHRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='}
+	<div class="well" style="width: 300px;">
+	<div style="width: 300px;">
+		<span class="label label-info pull-left" style="margin: 7px 0 0 15px; padding: 5px;"><img src="data:image/icon;base64,{$icon}" width="16" height="16" /></span>
+		<h1>CompanyDB</h1>
+	</div>
+	<p>pohovor - PHP developer 2.kolo</p>
+	
+	<div class="btn-group btn-group-vertical" style="margin-top: 15px;">
+		{if $tablesPresent}
+			<a n:href="Company:list" class="btn"><i class="icon-briefcase"></i> Companies</a>
+			<a n:href="Contact:list" class="btn"><i class="icon-user"></i> All contacts</a>
+			<a n:href="Company:new" class="btn btn-success "><i class="icon-plus icon-white"></i><i class="icon-briefcase icon-white"></i> Add Company</a>
+			<a n:href="Contact:new" class="btn btn-success "><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i> Add contact</a>
+			<a n:href="Homepage:refillDatabase" class="btn btn-warning modal-confirm" data-modal-message="Any saved data will be lost by randomizing. Do you agree?"><i class="icon-white icon-repeat"></i> Randomize database </a>
+		{else}
+			<a n:href="Homepage:initDatabase" class="btn btn-danger"><i class="icon-white icon-hdd"></i> Init database </a>
+		{/if}
+	</div>
+
+	<div>
+		<div class="label" style="margin-top: 35px;">
+			/** @author Jan Svatoš &lt;svatosja&#064;gmail.com&gt; */
+		</div>
+	</div>
+	</div>
+</div>
+{/block}

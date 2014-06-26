@@ -1,0 +1,21 @@
+{block title}All Contact persons | {/block}
+
+{block content}
+	<div class="padded">
+		<div class="navbar">
+			<div class="navbar-inner" style="padding-top:0px;">
+				{control contactList:filter}
+
+				<div class="btn-group pull-right">
+					<a n:href="Company:list" class="btn"><i class="icon-briefcase"></i> Companies</a>
+					<a n:href="Contact:new" class="btn btn-success"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i> Add contact</a>
+					<a n:href="Homepage:default" class="btn" title="Homepage"><i class="icon-home"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<h1>All Contact persons</h1>
+
+		{control contactList}
+	</div>
+{/block}

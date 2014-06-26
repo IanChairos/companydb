@@ -1,0 +1,23 @@
+{block title}Contact persons | {$company->getName()} | {/block}
+
+{block content}
+	<div class="padded">
+		<div class="navbar">
+			<div class="navbar-inner" style="padding-top:0px;">
+				{control companyContactList:filter}
+
+				<div class="btn-group pull-right">
+					<a n:href="Company:list" class="btn"><i class="icon-briefcase"></i> Companies</a>
+					<a n:href="Contact:list" class="btn"><i class="icon-user"></i> All contacts</a>
+					<a n:href="Company:edit, id => $company->getId()" class="btn"><i class="icon-briefcase"></i><i class="icon-wrench"></i> Edit company</a>
+					<a n:href="Contact:new, company => $company->getId()" class="btn btn-success "><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i> Add contact</a>
+					<a n:href="Homepage:default" class="btn" title="Homepage"><i class="icon-home"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<h1>Contact persons ({$company->getName()})</h1>
+
+		{control companyContactList}
+	</div>
+{/block}

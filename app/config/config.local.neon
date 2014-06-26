@@ -1,0 +1,13 @@
+parameters:
+	database:
+		driver: pdo_mysql
+		host: localhost
+		dbname: company_db
+		user: ****
+		password: ****
+nette:
+
+services:
+	
+
+factories:

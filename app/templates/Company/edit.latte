@@ -1,0 +1,28 @@
+{block title}
+	{ifset $company}
+		Edit company | {$company->getName()} | 
+	{else}
+		New company | 
+	{/ifset}
+{/block}
+
+{block content}
+	<div class="padded">
+		<div class="navbar">
+			<div class="navbar-inner" style="padding-top:0px;">
+				<a class="brand">{ifset $company}Edit company{else}New company{/ifset}</a>
+				<div class="btn-group pull-right">
+					<a n:href="Company:list" class="btn"><i class="icon-briefcase"></i> Companies</a>
+					<a n:href="Contact:list" class="btn"><i class="icon-user"></i> All contacts</a>
+					{ifset $company}
+						<a n:href="Contact:companyList, company => $company->getId()" class="btn"><i class="icon-briefcase"></i><i class="icon-user"></i> Company contacts</a>
+						<a n:href="Company:new" class="btn btn-success"><i class="icon-plus icon-white"></i><i class="icon-briefcase icon-white"></i> Add company</a>
+					{/ifset}
+					<a n:href="Homepage:default" class="btn" title="Homepage"><i class="icon-home"></i></a>
+				</div>
+			</div>
+		</div>
+		
+		{control editControl}
+	</div>
+{/block}

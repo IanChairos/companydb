@@ -1,0 +1,35 @@
+{block title}Company list | {/block}
+
+{block content}
+	<div class="padded">
+		<div class="navbar">
+			<div class="navbar-inner" style="padding-top:0px;">
+				{control companyList:filter}
+				<div class="btn-group pull-right">
+					<a n:href="Contact:list" class="btn"><i class="icon-user"></i> All contacts</a>
+					<a n:href="Company:new" class="btn btn-success"><i class="icon-plus icon-white"></i><i class="icon-briefcase icon-white"></i> Add company</a>
+					<a n:href="Homepage:default" class="btn" title="Homepage"><i class="icon-home"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<h1>Company list</h1>
+
+		{control companyList}
+	</div>
+{/block}
+	
+{block head}
+	{include #parent}
+	<style type="text/css">
+	</style>
+{/block}
+
+{block scripts}
+	{include #parent}
+	<script type="text/javascript">
+		$(function(){
+		});
+	</script>
+{/block}
+		

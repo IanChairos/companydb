@@ -1,0 +1,25 @@
+{block content}
+<div style="padding: 80px 20px 10px 20px;">
+	<div style="color: white; background: red; font-weight: bold; font-size: 30px; line-height: 30px; position: absolute; left:0;top:0; width: 100%; padding: 10px;">
+		Database Error
+	</div>
+	
+	<h1>{$error['label']}</h1>
+	<p style="font-size: 20px;">{$error['message']}</h1>
+	
+	<div class="well">
+		Check your config:
+		<pre style="background: #fcf9e6">{?print_r($params['database'])}</pre>
+		
+		<div class="label label-warning" style="padding: 10px;">You must have a proper named database present - as defined in your config
+		{ifset $params['database']['dbname']}
+			<div style="margin:10px;">
+				<code>CREATE DATABASE  `{$params['database']['dbname']}` CHARACTER SET utf8 COLLATE utf8_czech_ci</code>
+			</div>
+		{/ifset}
+		</div>
+	</div>
+	
+	<a n:href="Homepage:default" class="btn btn-warning"><i class="icon-white icon-repeat"></i><i class="icon-white icon-home"></i> Retry</a>
+</div>
+{/block}

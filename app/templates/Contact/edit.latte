@@ -1,0 +1,31 @@
+{block title}
+	{ifset $contact}
+		Edit contact | {$contact->getLastname().', '.$contact->getFirstname()} | 
+	{else}
+		New contact {ifset $company}({$company->getName()}){/ifset} | 
+	{/ifset}
+{/block}
+
+{block content}
+	<div class="padded">
+		<div class="navbar">
+			<div class="navbar-inner" style="padding-top:0px;">
+				<a class="brand">{ifset $contact}Edit contact{else}New contact{/ifset}</a>
+				<div class="btn-group pull-right">
+					<a href="{plink Company:list}" class="btn"><i class="icon-briefcase"></i> Companies</a>
+					<a href="{plink Contact:list}" class="btn"><i class="icon-user"></i> All contacts</a>
+					{ifset $company}
+						<a href="{plink Contact:companyList, 'company' => $company->getId()}" class="btn"><i class="icon-briefcase"></i><i class="icon-user"></i> Company contacts</a>
+					{/ifset}
+					{ifset $contact}
+						<a href="{plink Contact:companyList, 'company' => $contact->getCompany()->getId()}" class="btn"><i class="icon-briefcase"></i><i class="icon-user"></i> Company contacts</a>
+						<a href="{plink Contact:new, 'company' => $contact->getCompany()->getId()}" class="btn btn-success"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i> Add contact</a>
+					{/ifset}
+					<a n:href="Homepage:default" class="btn" title="Homepage"><i class="icon-home"></i></a>
+				</div>
+			</div>
+		</div>
+
+		{control editControl}
+	</div>
+{/block}

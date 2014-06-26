@@ -1,0 +1,43 @@
+<div class="well">
+	<div class="label label-info dg-found-label" style="">Found items: {$control->getCount()}</div>
+	<table class="table table-bordered table-condensed white-background datagrid">
+		<thead>
+			<tr class="alternative-background">
+				<th>ID</th>
+				<th>Name</th>
+				<th class="search-column">IČ</th>
+				<th>E-mail</th>
+				<th>Address</th>
+				<th title="Number of employees"># of E</th>
+				<th title="Number of contacts"># of C</th>
+				<th>Created on</th>
+				<th>Updated on</th>
+				<th n:if="$actions" colspan="{count($actions)}">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		{foreach $data as $item}
+			<tr>
+				<td>{$item->getId()}</td>
+				<td>{$item->getName()|firstUpper}</td>
+				<td class="search-column">{$item->getIc()}</td>
+				<td>{$item->getEmail()}</td>
+				<td class="tooltip-top" title="{$item->getAddress()}">{$item->getAddress()|truncate:32}</td>
+				<td>{$item->getEmployeeCount()}</td>
+				<td>{count($item->getContactPersons())}</td>
+				<td title="{$item->getCreated()->format('Y-m-d (l j.F) H:i:s')}">{$item->getCreated()->format('Y-m-d...')}</td>
+				<td title="{$item->getUpdated()->format('Y-m-d (l j.F) H:i:s')}">{$item->getUpdated()->format('Y-m-d...')}</td>
+				<td n:if="$actions" colspan="{count($actions)}" class="btn-group">
+					{foreach $actions as $action}
+						{$control->renderAction($item->getId(),$action)}
+					{/foreach}
+				</td>
+			</tr>
+		{/foreach}
+		</tbody>
+	</table>
+
+	{$control->renderPaginator()}
+	
+	<div class="clear"></div>
+</div>
